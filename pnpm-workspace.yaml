@@ -4,5 +4,7 @@ packages:
 
 allowBuilds:
   '@nestjs/core': true
+  '@scarf/scarf': true
+  esbuild: true
   sharp: true
   unrs-resolver: true
