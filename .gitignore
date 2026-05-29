@@ -1,7 +1,38 @@
+# Dependencies
 node_modules/
+apps/**/node_modules/
+packages/**/node_modules/
+
+# Turbo
+.turbo/
+apps/**/.turbo/
+packages/**/.turbo/
+
+# Build outputs
 dist/
+apps/**/dist/
+apps/**/.next/
+packages/**/dist/
+
+# Environment files
 .env
 .env.*
 !.env.example
+apps/**/.env
+apps/**/.env.*
+!apps/**/.env.example
+
+# Logs
 *.log
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# MCP
 .mcp.json
