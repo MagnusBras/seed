@@ -9,11 +9,13 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "format": "turbo run format",
     "test": "turbo run test",
     "test:e2e": "turbo run test:e2e",
     "type-check": "turbo run type-check"
   },
   "devDependencies": {
+    "prettier": "^3.8.3",
     "turbo": "^2.9.0"
   }
 }

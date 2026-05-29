@@ -1,9 +1,4 @@
-import {
-  ConflictException,
-  Inject,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { ConflictException, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { eq } from 'drizzle-orm';
 import { DRIZZLE } from '../db/drizzle.module';
 import type { DrizzleDb } from '../db/drizzle.module';
@@ -20,10 +15,7 @@ export class ClientsService {
   }
 
   async findOne(id: string) {
-    const [client] = await this.db
-      .select()
-      .from(clients)
-      .where(eq(clients.id, id));
+    const [client] = await this.db.select().from(clients).where(eq(clients.id, id));
 
     if (!client) throw new NotFoundException(`Client ${id} not found`);
     return client;
@@ -36,8 +28,8 @@ export class ClientsService {
         .values(dto as NewClient)
         .returning();
       return client;
-    } catch (err: any) {
-      if (err?.code === '23505') {
+    } catch (err: unknown) {
+      if ((err as { code?: string })?.code === '23505') {
         throw new ConflictException(`Email ${dto.email} already in use`);
       }
       throw err;
@@ -53,8 +45,8 @@ export class ClientsService {
         .where(eq(clients.id, id))
         .returning();
       return updated;
-    } catch (err: any) {
-      if (err?.code === '23505') {
+    } catch (err: unknown) {
+      if ((err as { code?: string })?.code === '23505') {
         throw new ConflictException(`Email ${dto.email} already in use`);
       }
       throw err;

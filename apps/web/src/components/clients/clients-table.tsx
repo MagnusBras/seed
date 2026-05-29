@@ -26,7 +26,10 @@ export function ClientsTable() {
     }
   }, []);
 
-  useEffect(() => { reload(); }, [reload]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    void reload();
+  }, [reload]);
 
   function handleSaved() {
     setShowForm(false);

@@ -49,4 +49,4 @@ async function bootstrap() {
   console.log(`Docs available on http://localhost:${port}/api/reference`);
 }
 
-bootstrap();
+void bootstrap();
