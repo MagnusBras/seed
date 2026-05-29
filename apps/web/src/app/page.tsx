@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { HelloCode } from '@/components/hello-code';
 
 interface HelloResponse {
@@ -42,6 +43,10 @@ export default async function HomePage() {
           <code>localhost:3001</code>.
         </p>
       )}
+
+      <Link href="/clients" style={{ marginTop: '1.5rem', color: '#60a5fa', fontSize: '0.9rem' }}>
+        → Gestão de Clients
+      </Link>
     </main>
   );
 }
